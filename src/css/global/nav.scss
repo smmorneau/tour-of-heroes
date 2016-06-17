@@ -1,0 +1,8 @@
+// TODO: Fix styles organization
+$font-stack:   "Times New Roman", Times, serif;
+$link-color: #000aef;
+
+#testing {
+  font: 100% $font-stack;
+  color: $link-color;
+}

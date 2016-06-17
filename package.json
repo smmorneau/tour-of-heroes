@@ -1,0 +1,71 @@
+{
+  "name": "tour-of-heroes-typescript",
+  "version": "0.0.0",
+  "description": "Tour of Heroes demo",
+  "engines": {
+    "node": "4.4.4"
+  },
+  "main": "server.js",
+  "scripts": {
+    "postinstall": "typings install && gulp build",
+    "start": "node server.js",
+    "test": "gulp test & live-server --open=tests/unit-tests.html --port=9999"
+  },
+  "dependencies": {
+    "@angular/common": "2.0.0-rc.1",
+    "@angular/compiler": "2.0.0-rc.1",
+    "@angular/core": "2.0.0-rc.1",
+    "@angular/http": "2.0.0-rc.1",
+    "@angular/platform-browser": "2.0.0-rc.1",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.1",
+    "@angular/router": "2.0.0-rc.1",
+    "@angular/router-deprecated": "2.0.0-rc.1",
+    "@angular/upgrade": "2.0.0-rc.1",
+    "angular2-in-memory-web-api": "0.0.7",
+    "bootstrap": "3.3.6",
+    "colors": "1.1.2",
+    "del": "2.2.0",
+    "es6-promise": "3.2.1",
+    "es6-shim": "0.35.1",
+    "express": "^4.13.4",
+    "gulp": "3.9.1",
+    "gulp-clean-css": "2.0.7",
+    "gulp-concat": "2.6.0",
+    "gulp-live-server": "0.0.29",
+    "gulp-plumber": "1.1.0",
+    "gulp-sass": "2.3.1",
+    "gulp-sass-lint": "1.1.1",
+    "gulp-sourcemaps": "1.6.0",
+    "gulp-tslint": "5.0.0",
+    "gulp-typescript": "2.13.4",
+    "gulp-uglify": "1.5.3",
+    "jquery": "2.2.3",
+    "live-server": "1.0.0",
+    "reflect-metadata": "0.1.2",
+    "run-sequence": "1.2.0",
+    "rxjs": "5.0.0-beta.6",
+    "systemjs": "0.19.27",
+    "systemjs-builder": "0.15.16",
+    "tsconfig-glob": "0.4.3",
+    "tslint": "3.10.1",
+    "typescript": "1.8.10",
+    "typings": "1.0.2",
+    "zone.js": "0.6.12"
+  },
+  "devDependencies": {
+    "jasmine-core": "2.4.1"
+  },
+  "cacheDirectories": [
+    "node_modules"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smmorneau/tour-of-heroes"
+  },
+  "keywords": [
+    "angular2",
+    "express",
+    "heroku",
+    "node"
+  ]
+}
