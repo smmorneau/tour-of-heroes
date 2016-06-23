@@ -20,7 +20,7 @@
     "src/js/components/app.component.ts",
     "src/js/components/dashboard.component.ts",
     "src/js/components/hero-detail.component.ts",
-    "src/js/components/heroes.component.ts",
+    "src/js/components/heroes-list.component.ts",
     "src/js/main.ts",
     "src/js/models/hero.ts",
     "src/js/services/hero.service.ts",

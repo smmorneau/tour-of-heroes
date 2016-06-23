@@ -2,7 +2,6 @@
 var map = {
   'app':                                'dist/js',
   'rxjs':                               'lib/js/rxjs',
-  'angular2-in-memory-web-api':         'lib/js/angular2-in-memory-web-api',
   '@angular':                           'lib/js/@angular'
 };
 
@@ -10,18 +9,17 @@ var map = {
 var packages = {
   'app':                                { main: 'main', defaultExtension: 'js' },
   'rxjs':                               { defaultExtension: 'js' },
-  'angular2-in-memory-web-api':         { defaultExtension: 'js' }
 };
 
 var packageNames = [
   '@angular/common',
   '@angular/compiler',
   '@angular/core',
+  '@angular/forms',
   '@angular/http',
   '@angular/platform-browser',
   '@angular/platform-browser-dynamic',
   '@angular/router',
-  '@angular/router-deprecated',
   '@angular/testing',
   '@angular/upgrade',
 ];

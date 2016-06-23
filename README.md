@@ -2,6 +2,7 @@
 
 ## About
 * Demo hosted on [Heroku](https://tour-of-heroes-typescript.herokuapp.com/)
+    (Using free dynos which sleep during inactivity, so initial load may be slow)
 * Angular 2 Code in Typescript 1.8 with SystemJS for module loading
     * Decouples components, models, services, and templates
     * Typings will be used to manage type definitions until [Typescript 2.0]

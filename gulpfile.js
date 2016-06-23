@@ -68,7 +68,7 @@ gulp.task('bundle:js', function() {
       return del(['public/dist/js/**/*', '!public/dist/js/app.min.js']);
     })
     .catch(function(err) {
-      console.error('>>> [systemjs-builder] Bundling failed'.bold.green);
+      console.error('>>> [systemjs-builder] Bundling failed'.bold.green, err);
     });
 });
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router-deprecated';
+import { Router } from '@angular/router';
 
 import { Hero } from '../models/hero';
 import { HeroDetailComponent } from './hero-detail.component';
@@ -13,21 +13,23 @@ import { htmlTemplate } from '../templates/heroes.html';
     template: htmlTemplate,
 })
 
-export class HeroesComponent implements OnInit {
+export class HeroesListComponent implements OnInit {
     heroes: Hero[];
     selectedHero: Hero;
     addingHero = false;
     error: any;
 
     constructor(
-        private _router: Router,
-        private _heroService: HeroService) { }
+        private router: Router,
+        private heroService: HeroService) { }
 
     getHeroes() {
-        this._heroService
+        this.heroService
             .getHeroes()
-            .then(heroes => this.heroes = heroes)
-            .catch(error => this.error = error); // TODO: Display error message
+            .subscribe(
+                heroes => this.heroes = heroes,
+                error => this.error = error // TODO: Display error message
+            );
     }
 
     addHero() {
@@ -42,12 +44,12 @@ export class HeroesComponent implements OnInit {
 
     delete(hero: Hero, event: any) {
         event.stopPropagation();
-        this._heroService
+        this.heroService
             .delete(hero)
-            .then(res => {
-                this.heroes = this.heroes.filter(h => h.id !== hero.id);
-            })
-            .catch(error => this.error = error); // TODO: Display error message
+            .subscribe(
+                res => this.heroes = this.heroes.filter(h => h.id !== hero.id),
+                error => this.error = error // TODO: Display error message
+            );
     }
 
     ngOnInit() {
@@ -60,6 +62,6 @@ export class HeroesComponent implements OnInit {
     }
 
     gotoDetail() {
-        this._router.navigate(['HeroDetail', { id: this.selectedHero.id }]);
+        this.router.navigate(['/detail/:id', { id: this.selectedHero.id }]);
     }
 }

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
-
-import 'rxjs/add/operator/toPromise';
+import { Http, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 import { Hero } from '../models/hero';
 
@@ -11,52 +10,46 @@ export class HeroService {
 
     constructor(private http: Http) { }
 
-    getHeroes(): Promise<Hero[]> {
-        return this.http.get(this.heroesUrl)
-            .toPromise()
-            .then(response => response.json().data)
-            .catch(this.handleError);
+    getHeroes(): Observable<Hero[]> {
+        return this.http
+            .get(this.heroesUrl)
+            .map(this.extractData);
     }
 
-    getHero(id: number) {
-        return this.getHeroes().then(
-            heroes => heroes.filter(hero => hero.id === id)[0]
-        );
+    getHero(id: number): Observable<Hero> {
+        return this.getHeroes()
+            .map(heroes => heroes.filter(hero => hero.id === id)[0]);
     }
 
-    save(hero: Hero): Promise<Hero>  {
+    save(hero: Hero): Observable<Hero>  {
         if (hero.id) {
             return this.put(hero);
         }
         return this.post(hero);
     }
 
-    delete(hero: Hero) {
+    delete(hero: Hero): Observable<Response> {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
         let url = `${this.heroesUrl}/${hero.id}`;
 
         return this.http
-            .delete(url, headers)
-            .toPromise()
-            .catch(this.handleError);
+            .delete(url, headers);
     }
 
     // Add new Hero
-    private post(hero: Hero): Promise<Hero> {
+    private post(hero: Hero): Observable<Hero> {
         let headers = new Headers({
             'Content-Type': 'application/json'});
 
         return this.http
             .post(this.heroesUrl, JSON.stringify(hero), {headers: headers})
-            .toPromise()
-            .then(res => res.json().data)
-            .catch(this.handleError);
+            .map(this.extractData);
     }
 
     // Update existing Hero
-    private put(hero: Hero) {
+    private put(hero: Hero): Observable<Hero> {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
@@ -64,13 +57,11 @@ export class HeroService {
 
         return this.http
             .put(url, JSON.stringify(hero), {headers: headers})
-            .toPromise()
-            .then(() => hero)
-            .catch(this.handleError);
+            .map(() => hero);
     }
 
-    private handleError(error: any) {
-        console.error('An error occurred', error);
-        return Promise.reject(error.message || error);
+    private extractData(res: Response) {
+        return res.json() || [];
     }
+
 }
