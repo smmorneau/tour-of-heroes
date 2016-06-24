@@ -3,12 +3,11 @@
   "version": false,
   "dependencies": {
     "es6-promise": "registry:npm/es6-promise#3.0.0+20160211003958",
-    "lodash": "registry:npm/lodash#4.0.0+20160416211519",
-    "moment": "registry:npm/moment#2.10.5+20160211003958"
+    "lodash": "registry:npm/lodash#4.0.0+20160416211519"
   },
   "globalDependencies": {
-    "es6-shim": "registry:dt/es6-shim#0.31.2+20160317120654",
-    "jasmine": "registry:dt/jasmine#2.2.0+20160505161446",
-    "jquery": "registry:dt/jquery#1.10.0+20160417213236"
+    "es6-shim": "registry:dt/es6-shim#0.31.2+20160602141504",
+    "jasmine": "registry:dt/jasmine#2.2.0+20160621224255",
+    "jquery": "registry:dt/jquery#1.10.0+20160620094458"
   }
 }

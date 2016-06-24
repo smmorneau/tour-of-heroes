@@ -23,15 +23,18 @@
 
 ## Installation
 * `npm install -g gulp typings`: installs Gulp and Typings globally
-* `npm install`: installs node modules locally
-    (need to run whenever dependencies in package.json change)
-* `typings install`: installs type definitions
-    (need to run whenever typings.json changes)
+* `npm install`: installs node modules locally then triggers type definition
+ installation and builds the app
 
 ## Build and Run
 ### Automatically
-1. `gulp`: lints, builds, and restarts web server on changes
+* `gulp`: lints, builds, and restarts web server on changes
     (Branch changes will cause server to crash; stop and start before doing so)
+
+If no code has changed since your last build, you can just run:
+
+* `gulp serve`: starts web server with a watcher that will recompile any changed files
+    (will not trigger recompilation on any files changed before task starts)
 
 ### Manually
 1. `gulp build`: lints, compiles, and compresses static files
@@ -49,5 +52,4 @@
 * `gulp scripts`: lints, compiles, compresses Typescript to JS only
 * `gulp lint`: lints Typescript and SCSS files
 * `gulp clean`: clears all built files
-* `gulp serve`: starts web server with a watcher that will recompile any changed files
-    (will not trigger recompilation on any files changed before task starts)
+* `typings install`: installs type definitions
