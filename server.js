@@ -21,10 +21,13 @@ var heroes = [
 ];
 
 app.get('/app/heroes', function(req, res) {
-  const name = req.query.name;
+  var name = req.query.name;
   if (name) {
-    var result = _.find(heroes, function(hero) { return hero.name.toLowerCase() === name.toLowerCase() });
-    res.json(result ? [result] : []);
+    name = name.toLowerCase();
+    var results = _.filter(heroes, function(hero) {
+      return _.includes(hero.name.toLowerCase(), name);
+    });
+    res.json(results);
   } else {
     res.json(heroes);
   }
