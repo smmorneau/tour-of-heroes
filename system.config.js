@@ -2,13 +2,15 @@
 var map = {
   'app':                                'dist/js',
   'rxjs':                               'lib/js/rxjs',
-  '@angular':                           'lib/js/@angular'
+  '@angular':                           'lib/js/@angular',
+  'zone.js':                            'lib/js/zone.js/dist',
 };
 
 // packages tells the System loader how to load when no filename and/or no extension
 var packages = {
   'app':                                { main: 'main', defaultExtension: 'js' },
   'rxjs':                               { defaultExtension: 'js' },
+  'zone.js':                            { main: 'zone', defaultExtension: 'js' },
 };
 
 var packageNames = [

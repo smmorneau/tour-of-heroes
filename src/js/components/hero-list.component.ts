@@ -2,21 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Hero } from '../models/hero';
-import { HeroDetailComponent } from './hero-detail.component';
 import { HeroService } from '../services/hero.service';
-import { htmlTemplate } from '../templates/heroes.html';
+import { htmlTemplate } from '../templates/hero-list.html';
 
 @Component({
-    directives: [HeroDetailComponent],
     selector: 'my-heroes',
-    styleUrls: ['dist/css/component/heroes.component.css'],
+    styleUrls: ['dist/css/component/hero-list.component.css'],
     template: htmlTemplate,
 })
 
 export class HeroesListComponent implements OnInit {
     heroes: Hero[];
     selectedHero: Hero;
-    addingHero = false;
+    // addingHero = false;
     error: any;
 
     constructor(
@@ -32,15 +30,20 @@ export class HeroesListComponent implements OnInit {
             );
     }
 
-    addHero() {
-        this.addingHero = true;
-        this.selectedHero = null;
+    add(name: string): void {
+        name = name.trim();
+        if (!name) { return; }
+        this.heroService.create(name)
+          .subscribe(hero => {
+              this.heroes.push(hero);
+              this.selectedHero = null;
+          });
     }
 
-    close(savedHero: Hero) {
-        this.addingHero = false;
-        if (savedHero) { this.getHeroes(); }
-    }
+    // close(savedHero: Hero) {
+    //     this.addingHero = false;
+    //     if (savedHero) { this.getHeroes(); }
+    // }
 
     delete(hero: Hero, event: any) {
         event.stopPropagation();
@@ -58,7 +61,7 @@ export class HeroesListComponent implements OnInit {
 
     onSelect(hero: Hero) {
         this.selectedHero = hero;
-        this.addingHero = false;
+        // this.addingHero = false;
     }
 
     gotoDetail() {

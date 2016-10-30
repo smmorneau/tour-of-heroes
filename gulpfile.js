@@ -146,9 +146,6 @@ gulp.task('copy:libs', function() {
   gulp.src(['node_modules/rxjs/**/*'])
     .pipe(gulp.dest('public/lib/js/rxjs'));
 
-  gulp.src(['node_modules/angular2-in-memory-web-api/**/*'])
-    .pipe(gulp.dest('public/lib/js/angular2-in-memory-web-api'));
-
   // concatenate non-angular2 libs, shims & systemjs-config
   gulp.src([
     'node_modules/jquery/dist/jquery.min.js',
