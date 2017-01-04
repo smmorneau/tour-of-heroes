@@ -24,6 +24,7 @@
     "body-parser": "^1.15.2",
     "bootstrap": "3.3.6",
     "colors": "1.1.2",
+    "compression": "^1.6.2",
     "del": "2.2.0",
     "es6-promise": "3.2.1",
     "es6-shim": "0.35.1",
