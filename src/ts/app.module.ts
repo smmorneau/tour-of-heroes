@@ -1,4 +1,4 @@
-import './rxjs-extensions';
+import './vendor';
 
 import { NgModule }            from '@angular/core';
 import { BrowserModule }       from '@angular/platform-browser';
@@ -12,6 +12,12 @@ import { HeroDetailComponent } from './components/hero-detail.component';
 import { HeroesListComponent } from './components/hero-list.component';
 import { HeroSearchComponent } from './components/hero-search.component';
 import { HeroService }         from './services/hero.service';
+
+// uncomment to add bootstrap
+// require('../../node_modules/bootstrap/dist/css/bootstrap.css');
+require('../scss/main.global.scss');
+require('../scss/nav.global.scss');
+
 
 @NgModule({
     bootstrap: [ AppComponent ],

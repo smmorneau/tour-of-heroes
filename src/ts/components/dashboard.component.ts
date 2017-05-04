@@ -3,20 +3,19 @@ import { Router } from '@angular/router';
 
 import { Hero } from '../models/hero';
 import { HeroService } from '../services/hero.service';
-import { htmlTemplate } from '../templates/dashboard.html';
+
 
 @Component({
     selector: 'my-dashboard',
-    styleUrls: ['dist/css/component/dashboard.component.css'],
-    template: htmlTemplate,
+    styles: [require('../../scss/dashboard.component.scss')],
+    template: require('../../html/dashboard.component.html'),
 })
-
 export class DashboardComponent implements OnInit {
     heroes: Hero[] = [];
 
     constructor(
         private router: Router,
-        private heroService: HeroService
+        private heroService: HeroService,
     ) {
         console.log('DashboardComponent');
     }

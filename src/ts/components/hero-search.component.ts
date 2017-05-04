@@ -5,13 +5,13 @@ import { Subject }           from 'rxjs/Subject';
 
 import { HeroSearchService } from '../services/hero-search.service';
 import { Hero } from '../models/hero';
-import { htmlTemplate } from '../templates/hero-search.html';
+
 
 @Component({
   providers: [ HeroSearchService ],
   selector: 'hero-search',
-  styleUrls: [ 'dist/css/component/hero-search.component.css' ],
-  template: htmlTemplate,
+  styles: [require('../../scss/hero-search.component.scss')],
+  template: require('../../html/hero-search.component.html'),
 })
 export class HeroSearchComponent implements OnInit {
   heroes: Observable<Hero[]>;

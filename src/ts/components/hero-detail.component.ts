@@ -4,14 +4,13 @@ import { Location }                 from '@angular/common';
 
 import { Hero }                     from '../models/hero';
 import { HeroService }              from '../services/hero.service';
-import { htmlTemplate }             from '../templates/hero-detail.html';
+
 
 @Component({
     selector: 'my-hero-detail',
-    styleUrls: ['dist/css/component/hero-detail.component.css'],
-    template: htmlTemplate,
+    styles: [require('../../scss/hero-detail.component.scss')],
+    template: require('../../html/hero-detail.component.html'),
 })
-
 export class HeroDetailComponent implements OnInit {
     hero: Hero;
     error: any;
@@ -19,7 +18,7 @@ export class HeroDetailComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private location: Location,
-        private heroService: HeroService
+        private heroService: HeroService,
     ) {}
 
     ngOnInit(): void {
@@ -42,7 +41,7 @@ export class HeroDetailComponent implements OnInit {
                     this.hero = hero; // saved hero, w/ id if new
                     this.goBack();
                 },
-                error => this.error = error  // TODO: Display error message
+                error => this.error = error,  // TODO: Display error message
             );
     }
 

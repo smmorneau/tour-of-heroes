@@ -3,14 +3,13 @@ import { Router } from '@angular/router';
 
 import { Hero } from '../models/hero';
 import { HeroService } from '../services/hero.service';
-import { htmlTemplate } from '../templates/hero-list.html';
+
 
 @Component({
     selector: 'my-heroes',
-    styleUrls: ['dist/css/component/hero-list.component.css'],
-    template: htmlTemplate,
+    styles: [require('../../scss/hero-list.component.scss')],
+    template: require('../../html/hero-list.component.html'),
 })
-
 export class HeroesListComponent implements OnInit {
     heroes: Hero[];
     selectedHero: Hero;
@@ -26,7 +25,7 @@ export class HeroesListComponent implements OnInit {
             .getHeroes()
             .subscribe(
                 heroes => this.heroes = heroes,
-                error => this.error = error // TODO: Display error message
+                error => this.error = error, // TODO: Display error message
             );
     }
 
@@ -51,7 +50,7 @@ export class HeroesListComponent implements OnInit {
             .delete(hero)
             .subscribe(
                 res => this.heroes = this.heroes.filter(h => h.id !== hero.id),
-                error => this.error = error // TODO: Display error message
+                error => this.error = error, // TODO: Display error message
             );
     }
 

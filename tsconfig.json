@@ -1,32 +1,36 @@
 {
+  "angularCompilerOptions": {
+    "debug": false
+  },
+  "awesomeTypescriptLoaderOptions": {
+    "useWebpackText": true
+  },
+  "buildOnSave": false,
+  "compileOnSave": false,
   "compilerOptions": {
+    "allowUnusedLabels": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "module": "system",
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "module": "commonjs",
     "moduleResolution": "node",
-    "outDir": "public/dist/js",
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "outDir": "public/js",
+    "rootDir": ".",
     "sourceMap": true,
-    "target": "ES5"
+    "suppressImplicitAnyIndexErrors": true,
+    "target": "ES5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": ["node", "jasmine"]
   },
   "exclude": [
-    "node_modules"
-  ],
-  "filesGlob": [
-    "src/**/*.ts",
-    "typings/*.d.ts"
-  ],
-  "files": [
-    "typings/index.d.ts",
-    "src/js/components/app.component.ts",
-    "src/js/components/dashboard.component.ts",
-    "src/js/components/hero-detail.component.ts",
-    "src/js/components/hero-list.component.ts",
-    "src/js/main.ts",
-    "src/js/models/hero.ts",
-    "src/js/services/hero.service.ts",
-    "src/js/services/in-memory-data.service.ts",
-    "src/js/templates/dashboard.html.ts",
-    "src/js/templates/hero-detail.html.ts",
-    "src/js/templates/hero-list.html.ts"
+    "node_modules",
+    "public"
   ]
 }

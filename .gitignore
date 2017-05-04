@@ -2,8 +2,8 @@
 ###################
 node_modules/*
 typings/*
-tests/js/*
 public/
+coverage/
 
 # Compiled source #
 ###################
