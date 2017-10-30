@@ -4,7 +4,7 @@
 * Demo hosted on [Heroku](https://tour-of-heroes-typescript.herokuapp.com/)
     (Using free dynos which sleep during inactivity, so initial load may be slow)
 * Webpack for module loading and bundling
-    * See deprecated [SystemJS](/smmorneau/tour-of-heroes/tree/v2.0) version
+    * See deprecated [SystemJS](https://github.com/smmorneau/tour-of-heroes/tree/v2.0) version
     * Different configs for development, production, and testing
 * Angular 2 Code in Typescript
     * Scripts are split into "public/polyfills.js", "public/vendor.js", and "public/app.js"
