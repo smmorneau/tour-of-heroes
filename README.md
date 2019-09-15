@@ -1,8 +1,6 @@
 # Typescript Angular 2 + Node.js Starter Project with Linting, Minification, and Bundling
 
 ## About
-* Demo hosted on [Heroku](https://tour-of-heroes-typescript.herokuapp.com/)
-    (Using free dynos which sleep during inactivity, so initial load may be slow)
 * Webpack for module loading and bundling
     * See deprecated [SystemJS](https://github.com/smmorneau/tour-of-heroes/tree/v2.0) version
     * Different configs for development, production, and testing
